@@ -20,8 +20,8 @@ Gradle version 2.10 or greater is required to build this web application.
 The only purpose of this project is to teach myself JavaScript and UI development.
 The following frameworks and tools are being used:
 
-* [AngularJS](http://angularjs.org/): Single Page Web Application Framework.
-* [Jasmine](http://jasmine.github.io/): For automated tests using BDD.
+* [AngularJS](http://angularjs.org/): For developing a single page web application.
+* [Jasmine](http://jasmine.github.io/): For BDD automated tests.
 * [Karma Plugin](https://github.com/craigburke/karma-gradle): For running automated tests from Gradle.
 
 I'm following the book [Unraveling AngularJS 1.4](http://www.amazon.com/Unraveling-AngularJS-With-Complete-Samples-ebook/dp/B00ULTPP00).
