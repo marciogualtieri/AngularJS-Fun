@@ -12,7 +12,7 @@ Gradle version 2.10 or greater is required to build this web application.
 
 ### <a name="browse-the-website"></a> BROWSE THE WEBSITE
 
- Click the following [link](http://marciogualtieri.github.io/src/main/index.html).
+ Click the following [link](http://marciogualtieri.github.io).
  I'm [hosting this website on GitHub](https://pages.github.com/).
 
 ### <a name="on-the-design-choices"></a> ON THE DESIGN CHOICES
