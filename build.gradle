@@ -1,0 +1,16 @@
+plugins {
+    id 'com.craigburke.karma' version '1.4.1'
+}
+
+karma {
+    profile('default') {
+        libraryBases = ['src/lib/']
+        libraryFiles = ['**/jquery-2.1.4.min.js', '**/bootstrap.min.js', '**/angular.min.js']
+
+        sourceBases = ['src/main/']
+        sourceFiles = ['**/*.js']
+
+        testBases = ['src/test/']
+        testFiles = ['**/*Spec.js']
+    }
+}
