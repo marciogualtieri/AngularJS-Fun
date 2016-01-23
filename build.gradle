@@ -1,5 +1,10 @@
 plugins {
     id 'com.craigburke.karma' version '1.4.1'
+    id 'com.eriwen.gradle.js' version '1.12.1'
+}
+
+repositories {
+    mavenCentral()
 }
 
 karma {
@@ -13,4 +18,16 @@ karma {
         testBases = ['src/test/']
         testFiles = ['**/*Spec.js']
     }
+}
+
+jshint {
+    tasks.jshint.source = file("${projectDir}/src/main")
+    tasks.jshint.dest = file("${buildDir}/jshint.out")
+    tasks.jshint.reporter = 'checkstyle'
+    jshint.options = [expr: "true", unused: "true"]
+}
+
+jsdoc {
+    tasks.jsdoc.source = [file("${projectDir}/src/main"), file("${projectDir}/src/test")]
+    tasks.jsdoc.destinationDir = file("${buildDir}/jsdoc")
 }

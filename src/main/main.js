@@ -1,6 +1,11 @@
 ﻿angular.module('marciogualtieri', [])
   .controller('mainController', MainController);
 
+/**
+ * Main Page's AngularJS controller
+ *
+ * @param $scope: AngularJS scope
+ */
 function MainController($scope) {
   $scope.activeMenu = '';
   $scope.isActive = isActive;
