@@ -1,4 +1,4 @@
-﻿angular.module('marciogualtieri', [])
+angular.module('marciogualtieri', [])
   .controller('mainController', MainController);
 
 /**
@@ -12,7 +12,6 @@ function MainController($scope) {
   $scope.showMain = showMain;
   $scope.showHistory = showHistory;
   $scope.showCourses = showCourses;
-
   $scope.showMain();
 
   function setView(view, menuId) {

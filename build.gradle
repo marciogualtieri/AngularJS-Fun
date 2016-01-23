@@ -21,13 +21,17 @@ karma {
 }
 
 jshint {
-    tasks.jshint.source = file("${projectDir}/src/main")
+    tasks.jshint.source = [file("${projectDir}/src/main"), file("${projectDir}/src/test")]
+    tasks.jshint.includes = ['**/*.js']
     tasks.jshint.dest = file("${buildDir}/jshint.out")
     tasks.jshint.reporter = 'checkstyle'
-    jshint.options = [expr: "true", unused: "true"]
+    jshint.options = [expr: 'true', unused: 'false']
+    jshint.predef = [angular: 'true', describe: 'true', expect: 'true', it: 'true', MainController: 'true']
 }
 
 jsdoc {
     tasks.jsdoc.source = [file("${projectDir}/src/main"), file("${projectDir}/src/test")]
     tasks.jsdoc.destinationDir = file("${buildDir}/jsdoc")
 }
+
+apply plugin: 'base'

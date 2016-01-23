@@ -6,7 +6,7 @@
 
 ### <a name="test-and-build-the-application"></a> TEST & BUILD THE APPLICATION
 
-     $ gradle karmaClean karmaRun jshint jsdoc
+     $ gradle clean karmaClean karmaRun jshint jsdoc
 
 JSDoc generated documentation will be available in the following folder:
 
