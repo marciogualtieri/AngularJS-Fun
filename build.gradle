@@ -1,6 +1,7 @@
 plugins {
     id 'com.craigburke.karma' version '1.4.1'
     id 'com.eriwen.gradle.js' version '1.12.1'
+    id 'org.akhikhl.gretty' version '1.2.4'
 }
 
 repositories {
@@ -9,11 +10,11 @@ repositories {
 
 karma {
     profile('default') {
-        libraryBases = ['src/lib/']
-        libraryFiles = ['**/jquery-2.1.4.min.js', '**/bootstrap.min.js', '**/angular.min.js']
+        libraryBases = ['src/main/webapp/WEB-INF/lib/']
+        libraryFiles = ['**/jquery.min.js', '**/bootstrap.min.js', '**/angular.min.js']
 
-        sourceBases = ['src/main/']
-        sourceFiles = ['**/*.js']
+        sourceBases = ['src/main/webapp/WEB-INF/']
+        sourceFiles = ['*.js']
 
         testBases = ['src/test/']
         testFiles = ['**/*Spec.js']
@@ -35,3 +36,31 @@ jsdoc {
 }
 
 apply plugin: 'base'
+apply plugin: 'war'
+apply plugin: 'java'
+apply plugin: 'org.akhikhl.gretty'
+
+project.webAppDirName = "src/main/webapp/WEB-INF"
+testClasses.dependsOn('compileSeleniumJava')
+
+sourceSets {
+    selenium
+}
+
+dependencies {
+    seleniumCompile 'junit:junit:4.11'
+    seleniumCompile 'org.seleniumhq.selenium:selenium-java:2.52.0'
+    seleniumCompile 'org.jsoup:jsoup:1.7.3'
+}
+
+task integrationTest(type: Test) {
+    testClassesDir = sourceSets.selenium.output.classesDir
+    classpath = sourceSets.selenium.runtimeClasspath
+}
+
+gretty {
+    integrationTestTask = 'integrationTest'
+    servletContainer = 'jetty9'
+    httpPort = 4453
+    contextPath = '/'
+}
