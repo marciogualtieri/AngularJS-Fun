@@ -16,7 +16,7 @@ karma {
         sourceBases = ['src/main/webapp/WEB-INF/']
         sourceFiles = ['*.js']
 
-        testBases = ['src/test/']
+        testBases = ['src/test/jasmine/']
         testFiles = ['**/*Spec.js']
     }
 }
@@ -44,7 +44,11 @@ project.webAppDirName = "src/main/webapp/WEB-INF"
 testClasses.dependsOn('compileSeleniumJava')
 
 sourceSets {
-    selenium
+    selenium {
+        java {
+            srcDirs = ['src/test/selenium/webapp']
+        }
+    }
 }
 
 dependencies {
