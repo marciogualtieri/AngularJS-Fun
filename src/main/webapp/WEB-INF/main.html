@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="marciogualtieri">
+<html ng-app="myWebsite">
 <head>
     <title>My Website: AngularJS</title>
     <link href="css/bootstrap.css" rel="stylesheet"/>
@@ -16,33 +16,27 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"
-           ng-click="showMain()">
-            Overview
+        <a class="navbar-brand" href="#/introduction">
+            introduction
         </a>
         <div class="collapse navbar-collapse" id="mainMenu">
             <ul class="nav navbar-nav">
-                <li ng-class="{active: isActive('History')}">
-                    <a href="#" ng-click="showHistory()">History</a>
+                <li my-website-menu-id="history">
+                    <a href="#/history">history</a>
                 </li>
-                <li ng-class="{active: isActive('Courses')}">
-                    <a href="#" ng-click="showCourses()">Courses</a>
+                <li my-website-menu-id="training">
+                    <a href="#/training">training</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 
-<!-- Optional view header -->
+<!-- Optional title bar -->
 <div class="current-spot">
-    <div class="container-fluid">
+    <div class="container-fluid" ng-show="!isActive('')">
         <div class="container">
-            <div ng-show="view=='history'">
-                <h3>History</h3>
-            </div>
-            <div ng-show="view=='courses'">
-                <h3>Courses</h3>
-            </div>
+            <h3>{{getTitle()}}</h3>
         </div>
     </div>
 </div>
@@ -51,15 +45,7 @@
 <div class="main-content">
     <div class="container-fluid">
         <div class="container">
-            <div ng-show="view=='main'">
-                <p>Main content</p>
-            </div>
-            <div ng-show="view=='locations'">
-                <p>History content</p>
-            </div>
-            <div ng-show="view=='diveSites'">
-                <p>Courses content</p>
-            </div>
+            <div ng-view></div>
         </div>
     </div>
 </div>
@@ -67,6 +53,7 @@
 <script src="lib/jquery.min.js"></script>
 <script src="lib/bootstrap.min.js"></script>
 <script src="lib/angular.min.js"></script>
+<script src="lib/angular-route.min.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
