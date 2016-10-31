@@ -34,7 +34,7 @@ If you want to use the Gretty plugin run the following command on a terminal:
 
     $ gradle run
     
-Then open the [following link](http://localhost:4453/main.html) with a browser.
+Then open [this link](http://localhost:4453/main.html) with a browser.
 
 ### <a name="on-the-design-choices"></a> ON THE DESIGN CHOICES
 
