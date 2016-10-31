@@ -1,22 +1,22 @@
-﻿﻿angular.module('myWebsite', ['ngRoute'])
+﻿﻿angular.module('angularJsFun', ['ngRoute'])
   .controller('mainController', MainController)
-    .controller('introductionController', IntroductionController)
-    .controller('historyController', HistoryController)
-    .controller('trainingController', TrainingController)
+    .controller('someTabController', SomeTabController)
+    .controller('anotherTabController', AnotherTabController)
+    .controller('aThirdTabController', AThirdTabController)
     .factory('currentSpot', currentSpot)
-    .directive('myWebsiteActiveMenu', myWebsiteActiveMenu)
+    .directive('angularJsFunActiveMenu', angularJsFunActiveMenu)
   .config(function ($routeProvider) {
-    $routeProvider.when('/history', {
-      templateUrl: 'views/history.html',
-      controller: 'historyController'
+    $routeProvider.when('/anotherTab', {
+      templateUrl: 'views/anotherTab.html',
+      controller: 'anotherTabController'
     });
-    $routeProvider.when('/training', {
-      templateUrl: 'views/training.html',
-      controller: 'trainingController'
+    $routeProvider.when('/aThirdTab', {
+      templateUrl: 'views/aThirdTab.html',
+      controller: 'aThirdTabController'
     });
     $routeProvider.otherwise({
-      templateUrl: 'views/introduction.html',
-      controller: 'introductionController'
+      templateUrl: 'views/someTab.html',
+      controller: 'someTabController'
     });
   });
 
@@ -51,15 +51,15 @@ function MainController($scope, currentSpot) {
   }
 }
 
-function myWebsiteActiveMenu(currentSpot) {
+function angularJsFunActiveMenu(currentSpot) {
   return function (scope, element, attrs) {
-    var activeMenuId = attrs["myWebsiteActiveMenu"];
-    var activeTitle = attrs["myWebsiteActiveTitle"];
+    var activeMenuId = attrs["angularJsFunActiveMenu"];
+    var activeTitle = attrs["angularJsFunActiveTitle"];
     currentSpot.setCurrentSpot(activeMenuId, activeTitle);
   }
 }
 
-function myWebsiteMenuId(currentSpot) {
+function angularJsFunMenuId(currentSpot) {
   var menuElements = [];
 
   function setActive(element, menuId) {
@@ -71,7 +71,7 @@ function myWebsiteMenuId(currentSpot) {
   }
 
   return function (scope, element, attrs) {
-    var menuId = attrs["myWebsiteMenuId"];
+    var menuId = attrs["angularJsFunMenuId"];
     menuElements.push({ id: menuId, node: element });
 
     var watcherFn = function (watchScope) {
@@ -86,11 +86,11 @@ function myWebsiteMenuId(currentSpot) {
   }
 }
 
-function IntroductionController(currentSpot) {
+function SomeTabController(currentSpot) {
 }
 
-function HistoryController(currentSpot) {
+function AnotherTabController(currentSpot) {
 }
 
-function TrainingController(currentSpot) {
+function AThirdTabController(currentSpot) {
 }

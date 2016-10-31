@@ -11,7 +11,7 @@ repositories {
 karma {
     profile('default') {
         libraryBases = ['src/main/webapp/WEB-INF/lib/']
-        libraryFiles = ['**/jquery.min.js', '**/bootstrap.min.js', '**/angular.min.js']
+        libraryFiles = ['jquery.min.js', 'bootstrap.min.js', 'angular.min.js']
 
         sourceBases = ['src/main/webapp/WEB-INF/']
         sourceFiles = ['*.js']
@@ -53,7 +53,7 @@ sourceSets {
 
 dependencies {
     seleniumCompile 'junit:junit:4.11'
-    seleniumCompile 'org.seleniumhq.selenium:selenium-java:2.52.0'
+    seleniumCompile 'org.seleniumhq.selenium:selenium-java:2.53.1'
     seleniumCompile 'org.jsoup:jsoup:1.7.3'
 }
 
